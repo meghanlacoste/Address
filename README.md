@@ -2,114 +2,130 @@
 
 package com.company;
 
-public class City_Addr implements NorthAm_Addr {
+import java.util.*;
+import java.io.*;
 
-  private String City;
-  private  String StreetName;
-  private int StreetNumber;
-  private String Country;
-  private String Province_State;
-  private String PostalCode_ZIP;
+public class Main {
 
+    private static int MAX_DATA = 100;
 
+    public static void main(String[] args) {
+        // write your code here
 
-              public City_Addr (int index){
 
+        Boolean done = false;
+        String userIn;
 
 
 
-              }
-              
+        City_Addr[] addressArrays = new City_Addr[10];
 
 
+        int counter = 0;
 
-                public void setCountry(String country){
+        while (!done && counter<10){
 
-                Country = country;
+            addressArrays[counter] = new City_Addr(counter);
 
-                }
 
+            Scanner scan = new Scanner (System.in);
 
-                public String getCountry(){
 
-                    return Country;
-                }
+            System.out.println("Enter Country");
 
-                public void setProvince_State (String province){
+            userIn  = scan.next();
 
+            addressArrays[counter].setCountry(userIn);
 
-                }
 
-                public String getProvince_State(){
 
 
-                    return Province_State;
-                }
 
-                public void setPostalCode_ZIP(String postalcode){
+            System.out.println("Enter Province");
+            String userIn2 = scan.next();
 
-                  PostalCode_ZIP = postalcode;
+            addressArrays[counter].setProvince_State(userIn2);
 
-                }
 
-                public String getPostalCode_ZIP(){
 
 
-                    return PostalCode_ZIP;
-                }
+            System.out.println("Enter Postal Code");
+            String userIn3 = scan.next();
 
-                public void setCity(String city){
+            addressArrays[counter].setPostalCode_ZIP(userIn3);
 
-                  City = city;
 
-                }
+           // Scanner scan4 = new Scanner (System.in);
 
 
-                public String getCity (){
 
-                  return City;
-                }
+            System.out.println("Enter City");
+            String userIn4 = scan.next();
 
+            addressArrays[counter].setCity(userIn4);
 
-                public void setStreetName(String Street){
 
-                StreetName = Street;
+            System.out.println("Enter Street Number");
 
-                }
+            int numb = scan.nextInt();
 
+            addressArrays[counter].setStreetNumber(numb);
 
-                public String getStreetName(){
 
-                  return StreetName;
-                }
 
+            System.out.println("Enter Street Name");
 
+            String userIn5 = scan.next();
 
-                public void setStreetNumber(int number){
+            addressArrays[counter].setStreetName(userIn5);
 
 
-                StreetNumber = number;
 
+            System.out.println("if you are done enter 'done'");
 
+            Scanner scanner= new Scanner (System.in);
+             userIn  = scanner.next();
 
+            if(userIn.equalsIgnoreCase("done") ) {
 
-                }
+                System.out.println("process finished");
+                done = true;
 
+            }
 
-                public int getStreetNumber(){
 
-                  return StreetNumber;
-                }
+            counter +=1;
 
+        }// end while !done
 
 
 
+        for (int i = 0; i < 10; i++){
 
+            if (addressArrays[i] !=null) {
 
+                System.out.println( addressArrays[i].getCountry() + "-" + addressArrays[i].getProvince_State() + "-" +
+                        addressArrays[i].getPostalCode_ZIP() + "-" +  addressArrays[i].getCity() + "-" + addressArrays[i].getStreetNumber()
+                        + "-" + addressArrays[i].getStreetName());
 
+            }
 
 
 
+        }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+    }
 }
