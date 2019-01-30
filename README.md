@@ -10,14 +10,14 @@ public class Main {
     private static int MAX_DATA = 100;
 
     public static void main(String[] args) {
-        // write your code here
+        
 
-
+        // Initializes boolean that checks is input process is complete to false;
         Boolean done = false;
-        String userIn;
+     
 
 
-
+        // Creates an array of objects that can store up to 10 objects
         City_Addr[] addressArrays = new City_Addr[10];
 
 
@@ -25,19 +25,19 @@ public class Main {
 
         while (!done && counter<10){
 
+
+            // creates new object at the counter index 
             addressArrays[counter] = new City_Addr(counter);
 
 
             Scanner scan = new Scanner (System.in);
-
+      
 
             System.out.println("Enter Country");
 
-            userIn  = scan.next();
+            String userIn  = scan.next();
 
             addressArrays[counter].setCountry(userIn);
-
-
 
 
 
@@ -45,7 +45,6 @@ public class Main {
             String userIn2 = scan.next();
 
             addressArrays[counter].setProvince_State(userIn2);
-
 
 
 
@@ -80,15 +79,20 @@ public class Main {
             addressArrays[counter].setStreetName(userIn5);
 
 
-
-            System.out.println("if you are done enter 'done'");
+            // ----------------------------------------------------------------
+            // after each address is entered checks with the user if they are finished.
+            System.out.println("if you have entered all your data enter 'done'");
 
             Scanner scanner= new Scanner (System.in);
              userIn  = scanner.next();
-
+            
+            // if the scanners next input is "done" or "DONE" 
             if(userIn.equalsIgnoreCase("done") ) {
 
-                System.out.println("process finished");
+
+                // sets boolean done to true to break out of loop
+                // Prints message to screen 
+                System.out.println(" Input process finished");
                 done = true;
 
             }
@@ -99,9 +103,12 @@ public class Main {
         }// end while !done
 
 
+         
 
+        // loops through all indexes n g
         for (int i = 0; i < 10; i++){
 
+            
             if (addressArrays[i] !=null) {
 
                 System.out.println( addressArrays[i].getCountry() + "-" + addressArrays[i].getProvince_State() + "-" +
